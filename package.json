@@ -1,0 +1,28 @@
+{
+  "name": "@0918nobita/remix-example",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "remix vite:build",
+    "serve": "remix-serve build/server/index.js"
+  },
+  "author": "Kodai Matsumoto <nobita.0918@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@remix-run/node": "^2.8.1",
+    "@remix-run/react": "^2.8.1",
+    "@remix-run/serve": "^2.8.1",
+    "isbot": "^4.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^2.8.1",
+    "prettier": "^3.2.5",
+    "vite": "^5.1.6"
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true
+  }
+}
