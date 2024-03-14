@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "remix vite:build",
-    "serve": "remix-serve build/server/index.js"
+    "dev": "node ./server.js",
+    "start": "cross-env NODE_ENV=production node ./server.js"
   },
   "author": "Kodai Matsumoto <nobita.0918@gmail.com>",
   "license": "MIT",
