@@ -1,5 +1,7 @@
 import { Links, Meta, Outlet, Scripts } from '@remix-run/react';
 
+import './global.css';
+
 export default function App() {
     return (
         <html>
