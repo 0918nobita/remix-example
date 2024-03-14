@@ -5,7 +5,8 @@
   "scripts": {
     "build": "remix vite:build",
     "dev": "node ./server.js",
-    "start": "cross-env NODE_ENV=production node ./server.js"
+    "start": "cross-env NODE_ENV=production node ./server.js",
+    "format": "prettier --write ./app vite.config.ts"
   },
   "author": "Kodai Matsumoto <nobita.0918@gmail.com>",
   "license": "MIT",
