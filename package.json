@@ -23,6 +23,7 @@
     "@remix-run/dev": "^2.8.1",
     "cross-env": "^7.0.3",
     "prettier": "^3.2.5",
+    "typescript": "^5.4.2",
     "vite": "^5.1.6"
   },
   "prettier": {
