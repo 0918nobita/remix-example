@@ -7,6 +7,11 @@ async function main(): Promise<void> {
         data: {
             name: 'Alice',
             email: 'alice@prisma.io',
+            posts: {
+                create: {
+                    title: 'Hello, world!',
+                },
+            },
         },
     });
 
