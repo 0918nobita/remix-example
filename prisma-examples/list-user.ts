@@ -3,9 +3,9 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main(): Promise<void> {
-    const users = await prisma.user.findMany();
+    const users = await prisma.user.findMany({ include: { posts: true } });
 
-    console.log(users);
+    console.dir(users, { depth: null });
 }
 
 main()
