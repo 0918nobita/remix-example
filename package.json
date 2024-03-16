@@ -6,11 +6,15 @@
     "build": "remix vite:build",
     "dev": "node ./server.js",
     "start": "cross-env NODE_ENV=production node ./server.js",
-    "format": "prettier --write ./app vite.config.ts"
+    "format": "prettier --write ./app vite.config.ts",
+    "prisma:reset": "prisma migrate reset",
+    "prisma:create-user": "tsx ./prisma-examples/create-user.ts",
+    "prisma:list-user": "tsx ./prisma-examples/list-user.ts"
   },
   "author": "Kodai Matsumoto <nobita.0918@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@prisma/client": "^5.11.0",
     "@remix-run/express": "^2.8.1",
     "@remix-run/node": "^2.8.1",
     "@remix-run/react": "^2.8.1",
@@ -29,6 +33,7 @@
     "cross-env": "^7.0.3",
     "prettier": "^3.2.5",
     "prisma": "^5.11.0",
+    "tsx": "^4.7.1",
     "typescript": "^5.4.2",
     "vite": "^5.1.6"
   },
