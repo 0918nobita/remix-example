@@ -1,4 +1,8 @@
-import { Link } from '@remix-run/react';
+import { MetaFunction } from '@remix-run/node';
+
+export const meta: MetaFunction = () => {
+    return [{ title: 'Index Page' }];
+};
 
 export default function Index() {
     return (
@@ -15,9 +19,6 @@ export default function Index() {
                     the docs at remix.run
                 </a>
                 .
-            </p>
-            <p>
-                <Link to="/card/42">Link to card page</Link>
             </p>
         </div>
     );

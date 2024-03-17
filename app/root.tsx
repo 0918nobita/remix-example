@@ -1,22 +1,27 @@
-import { Link, Links, Meta, Outlet, Scripts } from '@remix-run/react';
+import { PrismaClient } from '@prisma/client';
+import {
+    Link,
+    Links,
+    Meta,
+    Outlet,
+    Scripts,
+    json,
+    useLoaderData,
+} from '@remix-run/react';
 
 import './global.css';
-import * as sidebarStyles from './sidebar.css';
+import { Sidebar } from './components';
 
-const sidebar = (
-    <nav className={sidebarStyles.sidebar}>
-        <ul className={sidebarStyles.links}>
-            <li className={sidebarStyles.link}>
-                <Link to="/contacts/1">Your Name</Link>
-            </li>
-            <li className={sidebarStyles.link}>
-                <Link to="/contacts/2">Your Friend</Link>
-            </li>
-        </ul>
-    </nav>
-);
+export const loader = async () => {
+    const client = new PrismaClient();
+    const contacts = await client.contact.findMany();
+    await client.$disconnect();
+    return json(contacts);
+};
 
 export default function App() {
+    const contacts = useLoaderData<typeof loader>();
+
     return (
         <html>
             <head>
@@ -25,7 +30,14 @@ export default function App() {
                 <Links />
             </head>
             <body>
-                {sidebar}
+                <Sidebar
+                    links={contacts.map((contact) => [
+                        contact.id,
+                        <Link to={`/contacts/${contact.id}`}>
+                            {contact.first} {contact.last}
+                        </Link>,
+                    ])}
+                />
                 <Outlet />
                 <Scripts />
             </body>

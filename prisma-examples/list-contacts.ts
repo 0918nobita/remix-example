@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main(): Promise<void> {
-    const users = await prisma.user.findMany({ include: { posts: true } });
+    const users = await prisma.contact.findMany();
 
     console.dir(users, { depth: null });
 }

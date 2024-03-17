@@ -3,15 +3,11 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main(): Promise<void> {
-    const user = await prisma.user.create({
+    const user = await prisma.contact.create({
         data: {
-            name: 'Alice',
-            email: 'alice@prisma.io',
-            posts: {
-                create: {
-                    title: 'Hello, world!',
-                },
-            },
+            first: 'Kodai',
+            last: 'Matsumoto',
+            createdAt: new Date(),
         },
     });
 

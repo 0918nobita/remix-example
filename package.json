@@ -8,8 +8,8 @@
     "start": "cross-env NODE_ENV=production tsx ./server.ts",
     "format": "prettier --write ./app vite.config.ts",
     "prisma:reset": "prisma migrate reset",
-    "prisma:create-user": "tsx ./prisma-examples/create-user.ts",
-    "prisma:list-user": "tsx ./prisma-examples/list-user.ts"
+    "prisma:add-contact": "tsx ./prisma-examples/add-contact.ts",
+    "prisma:list-contacts": "tsx ./prisma-examples/list-contacts.ts"
   },
   "author": "Kodai Matsumoto <nobita.0918@gmail.com>",
   "license": "MIT",
