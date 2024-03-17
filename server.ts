@@ -1,12 +1,14 @@
 import { createRequestHandler } from '@remix-run/express';
+import { ServerBuild } from '@remix-run/node';
 import express from 'express';
+import { ViteDevServer } from 'vite';
 
-const viteDevServer =
+const viteDevServer: ViteDevServer | null =
     process.env.NODE_ENV === 'production'
         ? null
         : await import('vite').then((vite) =>
-              vite.createServer({ server: { middlewareMode: true } }),
-          );
+            vite.createServer({ server: { middlewareMode: true } }),
+        );
 
 const app = express();
 
@@ -15,8 +17,8 @@ app.use(
 );
 
 const build = viteDevServer
-    ? () => viteDevServer.ssrLoadModule('virtual:remix/server-build')
-    : await import('./build/server/index.js');
+    ? () => viteDevServer.ssrLoadModule('virtual:remix/server-build') as Promise<ServerBuild>
+    : await import('./build/server/index.js') as unknown as ServerBuild;
 
 app.all('*', createRequestHandler({ build }));
 
