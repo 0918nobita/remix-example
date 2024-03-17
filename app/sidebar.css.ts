@@ -7,7 +7,7 @@ export const sidebar = style({
     backgroundColor: '#f7f7f7',
 });
 
-export const sidebarLinks = style({
+export const links = style({
     selectors: {
         [`${sidebar} > &`]: {
             padding: '0',
@@ -17,9 +17,9 @@ export const sidebarLinks = style({
     },
 });
 
-export const sidebarLink = style({
+export const link = style({
     selectors: {
-        [`${sidebarLinks} > &`]: {
+        [`${links} > &`]: {
             margin: '0.25rem 0',
         },
     },

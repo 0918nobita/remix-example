@@ -1,15 +1,15 @@
 import { Link, Links, Meta, Outlet, Scripts } from '@remix-run/react';
 
 import './global.css';
-import { sidebar, sidebarLink, sidebarLinks } from './sidebar.css';
+import * as sidebarStyles from './sidebar.css';
 
-const Sidebar = (
-    <nav className={sidebar}>
-        <ul className={sidebarLinks}>
-            <li className={sidebarLink}>
+const sidebar = (
+    <nav className={sidebarStyles.sidebar}>
+        <ul className={sidebarStyles.links}>
+            <li className={sidebarStyles.link}>
                 <Link to="/contacts/1">Your Name</Link>
             </li>
-            <li className={sidebarLink}>
+            <li className={sidebarStyles.link}>
                 <Link to="/contacts/2">Your Friend</Link>
             </li>
         </ul>
@@ -25,7 +25,7 @@ export default function App() {
                 <Links />
             </head>
             <body>
-                {Sidebar}
+                {sidebar}
                 <Outlet />
                 <Scripts />
             </body>
