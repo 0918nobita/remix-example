@@ -11,4 +11,8 @@ globalStyle('*, *::before, *::after', {
 globalStyle('body', {
     fontFamily:
         '--apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Helvetica Neue", sans-serif',
+    display: 'flex',
+    flexDirection: 'row',
+    height: '100vh',
+    margin: '0',
 });

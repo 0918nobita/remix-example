@@ -1,6 +1,20 @@
-import { Links, Meta, Outlet, Scripts } from '@remix-run/react';
+import { Link, Links, Meta, Outlet, Scripts } from '@remix-run/react';
 
 import './global.css';
+import { sidebar, sidebarLink, sidebarLinks } from './sidebar.css';
+
+const Sidebar = (
+    <nav className={sidebar}>
+        <ul className={sidebarLinks}>
+            <li className={sidebarLink}>
+                <Link to="/contacts/1">Your Name</Link>
+            </li>
+            <li className={sidebarLink}>
+                <Link to="/contacts/2">Your Friend</Link>
+            </li>
+        </ul>
+    </nav>
+);
 
 export default function App() {
     return (
@@ -11,7 +25,7 @@ export default function App() {
                 <Links />
             </head>
             <body>
-                <h1>Hello, world!</h1>
+                {Sidebar}
                 <Outlet />
                 <Scripts />
             </body>
