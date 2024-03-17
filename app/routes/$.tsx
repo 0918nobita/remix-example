@@ -4,7 +4,7 @@ export const loader: LoaderFunction = () => {
     return json(null, { status: 404 });
 };
 
-export const meta: MetaFunction = () => {
+export const meta: MetaFunction<typeof loader> = () => {
     return [{ title: 'Oops!' }];
 };
 

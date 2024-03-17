@@ -1,4 +1,3 @@
-import { PrismaClient } from '@prisma/client';
 import {
     Link,
     Links,
@@ -9,13 +8,16 @@ import {
     useLoaderData,
 } from '@remix-run/react';
 
+import { getPrismaClient } from './db.server';
+
 import './global.css';
 import { Sidebar } from './components';
 
 export const loader = async () => {
-    const client = new PrismaClient();
-    const contacts = await client.contact.findMany();
-    await client.$disconnect();
+    const prisma = getPrismaClient();
+
+    const contacts = await prisma.contact.findMany();
+
     return json(contacts);
 };
 
@@ -34,11 +36,28 @@ export default function App() {
                     links={contacts.map((contact) => [
                         contact.id,
                         <Link to={`/contacts/${contact.id}`}>
-                            {contact.first} {contact.last}
+                            {contact.first} {contact.last}{' '}
+                            {contact.favorite && <span>★</span>}
                         </Link>,
                     ])}
                 />
                 <Outlet />
+                <Scripts />
+            </body>
+        </html>
+    );
+}
+
+export function ErrorBoundary() {
+    return (
+        <html>
+            <head>
+                <title>404 Not Found</title>
+                <Meta />
+                <Links />
+            </head>
+            <body>
+                <h2>Error!</h2>
                 <Scripts />
             </body>
         </html>

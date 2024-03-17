@@ -11,12 +11,12 @@ datasource db {
 }
 
 model Contact {
-  id Int @id @default(autoincrement())
-  first String
-  last String
-  avatar String?
-  twitter String?
-  notes String?
-  favorite Boolean @default(false)
+  id        Int      @id @default(autoincrement())
+  first     String
+  last      String
+  avatar    String?
+  twitter   String?
+  notes     String?
+  favorite  Boolean  @default(false)
   createdAt DateTime
 }

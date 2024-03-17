@@ -9,13 +9,17 @@ type Props = {
 export function Sidebar({ links }: Props) {
     return (
         <nav className={styles.className}>
-            <ul className={styles.links}>
-                {links.map(([key, linkEl]) => (
-                    <li className={styles.link} key={key}>
-                        {linkEl}
-                    </li>
-                ))}
-            </ul>
+            {links.length === 0 ? (
+                <p>No contacts</p>
+            ) : (
+                <ul className={styles.links}>
+                    {links.map(([key, linkEl]) => (
+                        <li className={styles.link} key={key}>
+                            {linkEl}
+                        </li>
+                    ))}
+                </ul>
+            )}
         </nav>
     );
 }
