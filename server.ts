@@ -7,8 +7,8 @@ const viteDevServer: ViteDevServer | null =
     process.env.NODE_ENV === 'production'
         ? null
         : await import('vite').then((vite) =>
-            vite.createServer({ server: { middlewareMode: true } }),
-        );
+              vite.createServer({ server: { middlewareMode: true } }),
+          );
 
 const app = express();
 
@@ -17,8 +17,11 @@ app.use(
 );
 
 const build = viteDevServer
-    ? () => viteDevServer.ssrLoadModule('virtual:remix/server-build') as Promise<ServerBuild>
-    : await import('./build/server/index.js') as unknown as ServerBuild;
+    ? () =>
+          viteDevServer.ssrLoadModule(
+              'virtual:remix/server-build',
+          ) as Promise<ServerBuild>
+    : ((await import('./build/server/index.js')) as unknown as ServerBuild);
 
 app.all('*', createRequestHandler({ build }));
 

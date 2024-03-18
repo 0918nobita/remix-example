@@ -47,19 +47,3 @@ export default function App() {
         </html>
     );
 }
-
-export function ErrorBoundary() {
-    return (
-        <html>
-            <head>
-                <title>404 Not Found</title>
-                <Meta />
-                <Links />
-            </head>
-            <body>
-                <h2>Error!</h2>
-                <Scripts />
-            </body>
-        </html>
-    );
-}
